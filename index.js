@@ -3,7 +3,6 @@ const server = express();
 const cors = require("cors");
 const helmet = require("helmet");
 require("dotenv").config();
-const host = process.env.HOST || "0.0.0.0";
 const port = process.env.PORT || 80;
 const patientRoute = require("./routes/patientRoute/patientRoute");
 const driverRoute = require("./routes/driverRoute/driverRoute");
@@ -22,6 +21,6 @@ server.use((err, req, res, next) => {
   });
 });
 
-server.listen(port, host, () => {
+server.listen(port, () => {
   console.log(`\n=> Server up at http://localhost:${port}\n`);
 });
