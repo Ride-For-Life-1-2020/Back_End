@@ -11,19 +11,20 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.get("/", (req, res) => {
-  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
-});
 server.use("/api/patient", patientRoute);
 server.use("/api/driver", driverRoute);
 
-server.use((err, req, res, next) => {
-  console.log("Error:", err);
-  res.status(500).json({
-    message: "Server Error"
-  });
-});
+// server.use((err, req, res, next) => {
+//   console.log("Error:", err);
+//   res.status(500).json({
+//     message: "Server Error"
+//   });
+// });
 
 server.listen(port, () => {
   console.log(`\n=> Server up at http://localhost:${port}\n`);
+});
+
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
 });
