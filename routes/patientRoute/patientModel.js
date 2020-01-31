@@ -4,15 +4,7 @@ const bcrypt = require("bcryptjs");
 function findBy(filter) {
   return db("Patients")
     .where(filter)
-    .select(
-      "FullName",
-      "UserName",
-      "PhoneNumber",
-      "DueDate",
-      "Email",
-      "Address",
-      "City"
-    );
+    .select("*");
 }
 
 async function registerPatient(Patient) {
