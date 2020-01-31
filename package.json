@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "cross-env NODE_ENV=development nodemon index.js",
     "start": "node server.js",
     "test": "cross-env jest --verbose --watchAll"
   },
