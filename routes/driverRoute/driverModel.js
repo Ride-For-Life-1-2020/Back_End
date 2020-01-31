@@ -4,16 +4,7 @@ const bcrypt = require("bcryptjs");
 function findBy(filter) {
   return db("Drivers")
     .where(filter)
-    .select(
-      "FullName",
-      "UserName",
-      "PhoneNumber",
-      "Vehicle",
-      "Shift",
-      "Price",
-      "Email",
-      "City"
-    );
+    .select("*");
 }
 
 async function registerDriver(Driver) {

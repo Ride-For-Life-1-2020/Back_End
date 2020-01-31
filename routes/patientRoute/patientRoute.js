@@ -17,7 +17,6 @@ router.post("/login", async (req, res, next) => {
     const Patient = await patientModel
       .findBy({ UserName: req.body.UserName })
       .first();
-    console.log(Patient);
     const validPassword = await bcrypt.compare(
       req.body.Password,
       Patient.Password

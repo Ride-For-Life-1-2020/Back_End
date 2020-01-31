@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const driverModel = require("../driverRoute/driverModel");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const secret = require("../../authentication/secret");
 
 router.post("/signup", async (req, res, next) => {
   try {
@@ -10,22 +13,26 @@ router.post("/signup", async (req, res, next) => {
 });
 
 router.post("/login", async (req, res, next) => {
-  // implement login
   try {
-    const { username, password } = req.body;
-    const user = await userModel.findBy({ username }).first();
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (user && validPassword) {
+    const Driver = await driverModel
+      .findBy({ UserName: req.body.UserName })
+      .first();
+    console.log(Driver);
+    const validPassword = await bcrypt.compare(
+      req.body.Password,
+      Driver.Password
+    );
+    if (Driver && validPassword) {
       const token = jwt.sign(
         {
-          id: user.id,
-          username: user.username
+          id: Driver.id,
+          username: Driver.UserName
         },
         secret.string,
         { expiresIn: "3d" }
       );
       res.status(200).json({
-        message: `Welcome ${user.username}`,
+        message: `Welcome ${Driver.UserName}`,
         token: token
       });
     } else {
