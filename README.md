@@ -8,6 +8,6 @@
 
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
-| /api/patient/signup |  POST  |  {FullName (Required), UserName (Required/Unique), Password (Required), PhoneNumber (Required), DueDate, Email, Address, City}         |
+| /api/patient/signup |  POST  |  {FullName (Required),<br/> UserName (Required/Unique),<br/> Password (Required), <br/> PhoneNumber (Required),<br/> DueDate,<br/> Email,<br/> Address,<br/> City}         |
 | test |  test  |                  |
 | test |  test  |                  |
