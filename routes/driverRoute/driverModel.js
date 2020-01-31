@@ -16,13 +16,13 @@ function findBy(filter) {
     );
 }
 
-async function registerPatient(Driver) {
+async function registerDriver(Driver) {
   Driver.Password = await bcrypt.hash(Driver.Password, 14);
   const [id] = await db("Drivers").insert(Driver);
   return findBy({ id }).first();
 }
 
 module.exports = {
-  registerPatient,
+  registerDriver,
   findBy
 };
