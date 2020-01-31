@@ -6,10 +6,11 @@ exports.up = async knex => {
       .notNullable()
       .unique();
     table.string("Password", 240).notNullable(),
-      table.integer("PhoneNumber", 10).notNullable(),
+      table.integer("PhoneNumber", 11).notNullable(),
       table.date("DueDate"),
       table.string("Email", 128),
-      table.string("Address", 240);
+      table.string("Address", 240),
+      table.string("City", 240);
   });
   await knex.schema.createTable("Drivers", table => {
     table.increments(), table.string("FullName", 50).notNullable();
@@ -18,9 +19,12 @@ exports.up = async knex => {
       .notNullable()
       .unique();
     table.string("Password", 240).notNullable(),
-      table.integer("PhoneNumber", 10).notNullable(),
+      table.integer("PhoneNumber", 11).notNullable(),
       table.string("Vehicle", 128),
+      table.string("Shift", 128),
+      table.integer("Price"),
       table.string("Email", 128);
+    table.string("City", 50).notNullable();
   });
 };
 
