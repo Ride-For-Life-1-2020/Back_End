@@ -20,11 +20,10 @@ server.use("/api/driver", driverRoute);
 //     message: "Server Error"
 //   });
 // });
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
+});
 
 server.listen(port, () => {
   console.log(`\n=> Server up at http://localhost:${port}\n`);
-});
-
-server.get("/", (req, res) => {
-  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
 });
