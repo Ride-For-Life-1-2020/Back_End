@@ -11,6 +11,9 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
+});
 server.use("/api/patient", patientRoute);
 server.use("/api/driver", driverRoute);
 
