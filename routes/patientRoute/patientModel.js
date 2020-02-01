@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 function find() {
   return db("Patients").select(
+    "id",
     "FullName",
     "UserName",
     "PhoneNumber",
@@ -16,6 +17,7 @@ function findBy(filter) {
   return db("Patients")
     .where(filter)
     .select(
+      "id",
       "FullName",
       "UserName",
       "PhoneNumber",
@@ -30,7 +32,12 @@ function loginFindBy(filter) {
     .where(filter)
     .select("*");
 }
-
+async function updatePatient(data) {
+  await db("Patients")
+    .update(data)
+    .where({ id: data.id });
+  return findBy({ id: data.id }).first();
+}
 async function registerPatient(Patient) {
   Patient.Password = await bcrypt.hash(Patient.Password, 14);
   const [id] = await db("Patients").insert(Patient);
@@ -41,5 +48,6 @@ module.exports = {
   registerPatient,
   findBy,
   loginFindBy,
-  find
+  find,
+  updatePatient
 };

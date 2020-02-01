@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 function find() {
   return db("Drivers").select(
+    "id",
     "FullName",
     "UserName",
     "PhoneNumber",
@@ -18,6 +19,7 @@ function findBy(filter) {
   return db("Drivers")
     .where(filter)
     .select(
+      "id",
       "FullName",
       "UserName",
       "PhoneNumber",
@@ -28,7 +30,12 @@ function findBy(filter) {
       "City"
     );
 }
-
+async function updateDriver(data) {
+  await db("Drivers")
+    .update(data)
+    .where({ id: data.id });
+  return findBy({ id: data.id }).first();
+}
 function loginFindBy(filter) {
   return db("Drivers")
     .where(filter)
@@ -45,5 +52,6 @@ module.exports = {
   registerDriver,
   findBy,
   loginFindBy,
-  find
+  find,
+  updateDriver
 };
