@@ -20,6 +20,7 @@ router.put(
   checkForPatient(),
   async (req, res, next) => {
     try {
+      console.log(req.body);
       const { id } = req.params;
       const changes = req.body;
       res

@@ -8,7 +8,8 @@ exports.seed = function(knex) {
         {
           FullName: "Tom Jerry",
           UserName: "tomjerry",
-          password: "password123",
+          password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           Vehicle: "Motorcycle",
           Shift: "PM",
@@ -19,7 +20,8 @@ exports.seed = function(knex) {
         {
           FullName: "Martha Stewart",
           UserName: "marthastewart",
-          password: "password123",
+          password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           Vehicle: "SUV",
           Shift: "AM",
@@ -30,7 +32,8 @@ exports.seed = function(knex) {
         {
           FullName: "Dan Abramov",
           UserName: "danabramov",
-          password: "password123",
+          password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           Vehicle: "Motorcycle",
           Shift: "AM",

@@ -8,7 +8,8 @@ exports.seed = function(knex) {
         {
           FullName: "Terry Thomas",
           UserName: "terrythomas",
-          Password: "password123",
+          Password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           DueDate: "6/12/2020",
           Email: "TerryT@gmail.com",
@@ -18,7 +19,8 @@ exports.seed = function(knex) {
         {
           FullName: "Rihanna",
           UserName: "rihanna",
-          Password: "password123",
+          Password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           DueDate: "6/12/2020",
           Email: "Rihanna@gmail.com",
@@ -28,7 +30,8 @@ exports.seed = function(knex) {
         {
           FullName: "Mary Michaels",
           UserName: "marymichaels",
-          Password: "password123",
+          Password:
+            "$2a$14$YeVVr3J4PXWTM.STM0PGAOsruLqg7y8PeW4Rsi4/LftHCk1e5FSI2",
           PhoneNumber: "1234567891",
           DueDate: "6/12/2020",
           Email: "MaryM@gmail.com",
