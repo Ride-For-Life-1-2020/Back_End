@@ -1,6 +1,17 @@
 const db = require("../../data/dbConfig");
 const bcrypt = require("bcryptjs");
 
+function find() {
+  return db("Patients").select(
+    "FullName",
+    "UserName",
+    "PhoneNumber",
+    "DueDate",
+    "Email",
+    "Address",
+    "City"
+  );
+}
 function findBy(filter) {
   return db("Patients")
     .where(filter)
@@ -29,5 +40,6 @@ async function registerPatient(Patient) {
 module.exports = {
   registerPatient,
   findBy,
-  loginFindBy
+  loginFindBy,
+  find
 };

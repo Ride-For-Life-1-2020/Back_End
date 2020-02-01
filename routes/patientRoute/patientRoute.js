@@ -4,6 +4,14 @@ const secret = require("../../authentication/secret");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+router.get("/", async (req, res, next) => {
+  try {
+    res.status(200).json(await patientModel.find());
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post("/signup", async (req, res, next) => {
   try {
     res.status(201).json(await patientModel.registerPatient(req.body));

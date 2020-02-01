@@ -44,5 +44,6 @@ async function registerDriver(Driver) {
 module.exports = {
   registerDriver,
   findBy,
-  loginFindBy
+  loginFindBy,
+  find
 };

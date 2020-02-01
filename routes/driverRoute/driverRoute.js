@@ -4,6 +4,14 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const secret = require("../../authentication/secret");
 
+router.get("/", async (req, res, next) => {
+  try {
+    res.status(200).json(await driverModel.find());
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post("/signup", async (req, res, next) => {
   try {
     res.status(201).json(await driverModel.registerDriver(req.body));
