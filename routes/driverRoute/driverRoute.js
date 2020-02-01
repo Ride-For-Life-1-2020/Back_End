@@ -56,6 +56,11 @@ router.post("/login", async (req, res, next) => {
     const Driver = await driverModel
       .loginFindBy({ UserName: req.body.UserName })
       .first();
+    if (!Driver) {
+      res.status(401).json({
+        message: "Driver Does Not Exist"
+      });
+    } //Change this to MW
     const validPassword = await bcrypt.compare(
       req.body.Password,
       Driver.Password

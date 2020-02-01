@@ -59,6 +59,11 @@ router.post("/login", async (req, res, next) => {
     const Patient = await patientModel
       .loginFindBy({ UserName: req.body.UserName })
       .first();
+    if (!Patient) {
+      res.status(401).json({
+        message: "Patient Does Not Exist"
+      });
+    } //Change this to MW
     const validPassword = await bcrypt.compare(
       req.body.Password,
       Patient.Password
