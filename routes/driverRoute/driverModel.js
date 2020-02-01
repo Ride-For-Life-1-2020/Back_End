@@ -51,10 +51,16 @@ async function registerDriver(Driver) {
   return findBy({ id }).first();
 }
 
+function deleteDriver(id) {
+  return db("Drivers")
+    .del()
+    .where({ id });
+}
 module.exports = {
   registerDriver,
   findBy,
   loginFindBy,
   find,
-  updateDriver
+  updateDriver,
+  deleteDriver
 };

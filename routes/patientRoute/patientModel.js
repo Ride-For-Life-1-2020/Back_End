@@ -47,10 +47,16 @@ async function registerPatient(Patient) {
   return findBy({ id }).first();
 }
 
+function deletePatient(id) {
+  return db("Patients")
+    .del()
+    .where({ id });
+}
 module.exports = {
   registerPatient,
   findBy,
   loginFindBy,
   find,
-  updatePatient
+  updatePatient,
+  deletePatient
 };

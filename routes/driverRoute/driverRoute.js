@@ -69,4 +69,18 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
+router.delete(
+  "/:id",
+  authenticationMW,
+  checkForDriver(),
+  async (req, res, next) => {
+    try {
+      await driverModel.deleteDriver(req.params.id);
+      res.status(201).json({ Success: "Driver Deleted Successfully!" });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 module.exports = router;

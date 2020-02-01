@@ -20,7 +20,6 @@ router.put(
   checkForPatient(),
   async (req, res, next) => {
     try {
-      console.log(req.body);
       const { id } = req.params;
       const changes = req.body;
       res
@@ -71,4 +70,19 @@ router.post("/login", async (req, res, next) => {
     next(err);
   }
 });
+
+router.delete(
+  "/:id",
+  authenticationMW,
+  checkForPatient(),
+  async (req, res, next) => {
+    try {
+      await patientModel.deletePatient(req.params.id);
+      res.status(201).json({ Success: "Patient Deleted Successfully!" });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 module.exports = router;
