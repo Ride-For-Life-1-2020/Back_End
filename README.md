@@ -13,9 +13,11 @@
 | ---- | :----: | ---------------: |
 | /api/driver/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price,<br/> Email, <br/> City (<strong>Required</strong>)       |
 | /api/driver/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)            |
+| /api/driver |  GET  |               |
 
-## PATIENT Endpoints
+## Patient Endpoints
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
 | /api/patient/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       |
 | /api/patient/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)             |
+| /api/patient |  GET  |               |
