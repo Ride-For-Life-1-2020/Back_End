@@ -12,4 +12,5 @@
 | ---- | :----: | ---------------: |
 | /api/patient/signup |  POST  |  FullName (Required),<br/> UserName (Required/Unique),<br/> Password (Required), <br/> PhoneNumber (Integer & Required),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       |
 | /api/driver/signup |  POST  |  FullName (Required),<br/> UserName (Required/Unique),<br/> Password (Required), <br/> PhoneNumber (Integer & Required),<br/> Vehicle,<br/> Shift,<br/> Price,<br/> Email, <br/> City (Required)       |
-| test |  test  |                  |
+| /api/patient/login |  POST  |     UserName, <br/> Password             |
+| /api/driver/login |  POST  |     UserName, <br/> Password             |
