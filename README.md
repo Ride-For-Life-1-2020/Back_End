@@ -6,7 +6,7 @@
 
 ### MAIN URL : https://rideforlifebackend.herokuapp.com 
 <br/>
-###(EXAMPLE: https://rideforlifebackend.herokuapp.com/api/patient/signup)
+### EXAMPLE: https://rideforlifebackend.herokuapp.com/api/patient/signup
 
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
