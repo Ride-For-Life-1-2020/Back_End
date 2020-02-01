@@ -11,13 +11,13 @@
 ## Driver Endpoints
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
-| /api/driver/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price,<br/> Email, <br/> City (<strong>Required</strong>)       |
-| /api/driver/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)            |
-| /api/driver |  GET  |               |
+| /api/drivers/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price,<br/> Email, <br/> City (<strong>Required</strong>)       |
+| /api/drivers/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)            |
+| /api/drivers |  GET  |               |
 
 ## Patient Endpoints
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
-| /api/patient/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       |
-| /api/patient/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)             |
-| /api/patient |  GET  |               |
+| /api/patients/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       |
+| /api/patients/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)             |
+| /api/patients |  GET  |               |
