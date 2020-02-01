@@ -5,11 +5,13 @@ function checkForPatient(req, res, next) {
   return async (req, res, next) => {
     const { id } = req.params;
     const [findUser] = await patientModel.findBy({ id });
-    if (findUser) {
+    if (!findUser) {
+      res.status(404).json({
+        Error: "Patient Cannot Be Found"
+      });
+    } else {
       req = req;
       next();
-    } else {
-      res.status(404).json({ Error: "Patient Not Found" });
     }
   };
 }
@@ -18,11 +20,13 @@ function checkForDriver(req, res, next) {
   return async (req, res, next) => {
     const { id } = req.params;
     const [findUser] = await driverModel.findBy({ id });
-    if (findUser) {
+    if (!findUser) {
+      res.status(404).json({
+        Error: "Driver Cannot Be Found"
+      });
+    } else {
       req = req;
       next();
-    } else {
-      res.status(404).json({ Error: "Driver Not Found" });
     }
   };
 }

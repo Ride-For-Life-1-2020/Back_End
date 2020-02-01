@@ -33,6 +33,9 @@ function loginFindBy(filter) {
     .select("*");
 }
 async function updatePatient(data) {
+  if (data.Password) {
+    data.Password = await bcrypt.hash(data.Password, 14);
+  }
   await db("Patients")
     .update(data)
     .where({ id: data.id });

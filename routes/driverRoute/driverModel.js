@@ -31,6 +31,9 @@ function findBy(filter) {
     );
 }
 async function updateDriver(data) {
+  if (data.Password) {
+    data.Password = await bcrypt.hash(data.Password, 14);
+  }
   await db("Drivers")
     .update(data)
     .where({ id: data.id });
