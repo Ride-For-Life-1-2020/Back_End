@@ -13,11 +13,11 @@
 | ---- | :----: | :---------------: |  ---------------: |
 | /api/drivers/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price,<br/> Email, <br/> City (<strong>Required</strong>)       | No |
 | /api/drivers/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)            | No |
-| /api/drivers |  GET  |               | Yes (<br> Requires: 'authorization' header</br>|
+| /api/drivers |  GET  |               | <strong> Requires: 'authorization' header</strong>|
 
 ## Patient Endpoints
 | URL  | METHOD | Object Example |
 | ---- | :----: | ---------------: |
 | /api/patients/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       | No |
 | /api/patients/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)             | No |
-| /api/patients |  GET  |               | Yes (<br> Requires: 'authorization' header</br>|
+| /api/patients |  GET  |               | <strong> Requires: 'authorization' header</strong>|
