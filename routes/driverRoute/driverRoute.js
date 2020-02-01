@@ -13,6 +13,20 @@ router.get("/", authenticationMW, async (req, res, next) => {
     next(err);
   }
 });
+router.get(
+  "/:id",
+  authenticationMW,
+  checkForDriver(),
+  async (req, res, next) => {
+    try {
+      res
+        .status(200)
+        .json(await driverModel.findBy({ id: req.params.id }).first());
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.put(
   "/:id",

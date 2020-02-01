@@ -14,6 +14,21 @@ router.get("/", authenticationMW, async (req, res, next) => {
   }
 });
 
+router.get(
+  "/:id",
+  authenticationMW,
+  checkForPatient(),
+  async (req, res, next) => {
+    try {
+      res
+        .status(200)
+        .json(await patientModel.findBy({ id: req.params.id }).first());
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 router.put(
   "/:id",
   authenticationMW,
