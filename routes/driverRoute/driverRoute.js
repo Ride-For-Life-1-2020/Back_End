@@ -15,9 +15,8 @@ router.post("/signup", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const Driver = await driverModel
-      .findBy({ UserName: req.body.UserName })
+      .loginFindBy({ UserName: req.body.UserName })
       .first();
-    console.log(Driver);
     const validPassword = await bcrypt.compare(
       req.body.Password,
       Driver.Password

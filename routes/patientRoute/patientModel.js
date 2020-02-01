@@ -4,6 +4,19 @@ const bcrypt = require("bcryptjs");
 function findBy(filter) {
   return db("Patients")
     .where(filter)
+    .select(
+      "FullName",
+      "UserName",
+      "PhoneNumber",
+      "DueDate",
+      "Email",
+      "Address",
+      "City"
+    );
+}
+function loginFindBy(filter) {
+  return db("Patients")
+    .where(filter)
     .select("*");
 }
 
@@ -15,5 +28,6 @@ async function registerPatient(Patient) {
 
 module.exports = {
   registerPatient,
-  findBy
+  findBy,
+  loginFindBy
 };
