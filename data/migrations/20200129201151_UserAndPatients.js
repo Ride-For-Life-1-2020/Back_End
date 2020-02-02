@@ -5,7 +5,7 @@ exports.up = async knex => {
       .string("UserName", 50)
       .notNullable()
       .unique();
-    table.string("Password", 240).notNullable(),
+    table.varchar("Password", 240).notNullable(),
       table.integer("PhoneNumber", 11).notNullable(),
       table.date("DueDate"),
       table.string("Email", 128),
@@ -18,7 +18,7 @@ exports.up = async knex => {
       .string("UserName", 50)
       .notNullable()
       .unique();
-    table.string("Password", 240).notNullable(),
+    table.varchar("Password", 240).notNullable(),
       table.integer("PhoneNumber", 11).notNullable(),
       table.string("Vehicle", 128),
       table.string("Shift", 128),
