@@ -1,15 +1,8 @@
 module.exports = {
   development: {
-    client: "sqlite3",
+    client: "pg",
     useNullAsDefault: true,
-    connection: {
-      filename: "./data/RideForLife.db3"
-    },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      }
-    },
+    connection: `${process.env.DATABASE_URL}?ssl=true`,
     migrations: {
       directory: "./data/migrations"
     },
@@ -18,16 +11,9 @@ module.exports = {
     }
   },
   production: {
-    client: "sqlite3",
+    client: "pg",
     useNullAsDefault: true,
-    connection: {
-      filename: "./data/RideForLife.db3"
-    },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      }
-    },
+    connection: `${process.env.DATABASE_URL}?ssl=true`,
     migrations: {
       directory: "./data/migrations"
     },
