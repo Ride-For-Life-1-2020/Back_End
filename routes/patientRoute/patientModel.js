@@ -43,8 +43,8 @@ async function updatePatient(data) {
 }
 async function registerPatient(Patient) {
   Patient.Password = await bcrypt.hash(Patient.Password, 14);
-  const [id] = await db("Patients").insert(Patient);
-  return findBy({ id }).first();
+  await db("Patients").insert(Patient);
+  return findBy({ Patient: Patient.UserName }).first();
 }
 
 function deletePatient(id) {

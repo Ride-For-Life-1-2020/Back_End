@@ -47,8 +47,8 @@ function loginFindBy(filter) {
 
 async function registerDriver(Driver) {
   Driver.Password = await bcrypt.hash(Driver.Password, 14);
-  const [id] = await db("Drivers").insert(Driver);
-  return findBy({ id }).first();
+  await db("Drivers").insert(Driver);
+  return findBy({ UserName: Driver.UserName }).first();
 }
 
 function deleteDriver(id) {
