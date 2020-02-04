@@ -15,7 +15,7 @@ exports.seed = function(knex) {
           Shift: "PM",
           Price: "50",
           Email: "tomjerry@gmail.com",
-          City: "Kampala"
+          City_ID: 1
         },
         {
           FullName: "Martha Stewart",
@@ -27,7 +27,7 @@ exports.seed = function(knex) {
           Shift: "AM",
           Price: "35",
           Email: "marthastewart@gmail.com",
-          City: "Kampala"
+          City_ID: 1
         },
         {
           FullName: "Dan Abramov",
@@ -39,7 +39,7 @@ exports.seed = function(knex) {
           Shift: "AM",
           Price: "42",
           Email: "danabramov@gmail.com",
-          City: "Jinja"
+          City_ID: 2
         }
       ]);
     });

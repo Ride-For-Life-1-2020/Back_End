@@ -3,8 +3,8 @@ const driverModel = require("../routes/driverRoute/driverModel");
 
 function checkForPatient(req, res, next) {
   return async (req, res, next) => {
-    const { id } = req.params;
-    const [findUser] = await patientModel.findBy({ id });
+    const { UserName } = req.params;
+    const [findUser] = await patientModel.findBy({ UserName });
     if (!findUser) {
       res.status(404).json({
         Error: "Patient Cannot Be Found"
@@ -18,8 +18,8 @@ function checkForPatient(req, res, next) {
 
 function checkForDriver(req, res, next) {
   return async (req, res, next) => {
-    const { id } = req.params;
-    const [findUser] = await driverModel.findBy({ id });
+    const { UserName } = req.params;
+    const [findUser] = await driverModel.findBy({ UserName });
     if (!findUser) {
       res.status(404).json({
         Error: "Driver Cannot Be Found"

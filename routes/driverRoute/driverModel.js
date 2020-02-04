@@ -2,24 +2,9 @@ const db = require("../../data/dbConfig");
 const bcrypt = require("bcryptjs");
 
 function find() {
-  return db("Drivers").select(
-    "id",
-    "FullName",
-    "UserName",
-    "PhoneNumber",
-    "Vehicle",
-    "Shift",
-    "Price",
-    "Email",
-    "City"
-  );
-}
-
-function findBy(filter) {
   return db("Drivers")
-    .where(filter)
     .select(
-      "id",
+      "Drivers.id",
       "FullName",
       "UserName",
       "PhoneNumber",
@@ -27,8 +12,26 @@ function findBy(filter) {
       "Shift",
       "Price",
       "Email",
-      "City"
-    );
+      "c.City"
+    )
+    .join("Cities as c", "c.id", "Drivers.City_ID");
+}
+
+function findBy(filter) {
+  return db("Drivers")
+    .where(filter)
+    .select(
+      "Drivers.id",
+      "FullName",
+      "UserName",
+      "PhoneNumber",
+      "Vehicle",
+      "Shift",
+      "Price",
+      "Email",
+      "c.City"
+    )
+    .join("Cities as c", "c.id", "Drivers.City_ID");
 }
 async function updateDriver(data) {
   if (data.Password) {
@@ -36,13 +39,14 @@ async function updateDriver(data) {
   }
   await db("Drivers")
     .update(data)
-    .where({ id: data.id });
-  return findBy({ id: data.id }).first();
+    .where({ UserName: data.UserName });
+  return findBy({ UserName: data.UserName }).first();
 }
 function loginFindBy(filter) {
   return db("Drivers")
     .where(filter)
-    .select("*");
+    .select("*")
+    .join("Cities as c", "c.id", "Drivers.City_ID");
 }
 
 async function registerDriver(Driver) {
@@ -51,10 +55,10 @@ async function registerDriver(Driver) {
   return findBy({ UserName: Driver.UserName }).first();
 }
 
-function deleteDriver(id) {
+function deleteDriver(UserName) {
   return db("Drivers")
     .del()
-    .where({ id });
+    .where({ UserName });
 }
 module.exports = {
   registerDriver,

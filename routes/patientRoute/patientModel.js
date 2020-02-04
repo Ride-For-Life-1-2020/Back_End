@@ -2,30 +2,33 @@ const db = require("../../data/dbConfig");
 const bcrypt = require("bcryptjs");
 
 function find() {
-  return db("Patients").select(
-    "id",
-    "FullName",
-    "UserName",
-    "PhoneNumber",
-    "DueDate",
-    "Email",
-    "Address",
-    "City"
-  );
-}
-function findBy(filter) {
   return db("Patients")
-    .where(filter)
     .select(
-      "id",
+      "Patients.id",
       "FullName",
       "UserName",
       "PhoneNumber",
       "DueDate",
       "Email",
       "Address",
-      "City"
-    );
+      "c.City"
+    )
+    .join("Cities as c", "c.id", "Patients.City_ID");
+}
+function findBy(filter) {
+  return db("Patients")
+    .where(filter)
+    .select(
+      "Patients.id",
+      "FullName",
+      "UserName",
+      "PhoneNumber",
+      "DueDate",
+      "Email",
+      "Address",
+      "c.City"
+    )
+    .join("Cities as c", "c.id", "Patients.City_ID");
 }
 function loginFindBy(filter) {
   return db("Patients")
@@ -38,19 +41,19 @@ async function updatePatient(data) {
   }
   await db("Patients")
     .update(data)
-    .where({ id: data.id });
-  return findBy({ id: data.id }).first();
+    .where({ UserName: data.UserName });
+  return findBy({ UserName: data.UserName }).first();
 }
 async function registerPatient(Patient) {
   Patient.Password = await bcrypt.hash(Patient.Password, 14);
   await db("Patients").insert(Patient);
-  return findBy({ Patient: Patient.UserName }).first();
+  return findBy({ UserName: Patient.UserName }).first();
 }
 
-function deletePatient(id) {
+function deletePatient(UserName) {
   return db("Patients")
     .del()
-    .where({ id });
+    .where({ UserName });
 }
 module.exports = {
   registerPatient,

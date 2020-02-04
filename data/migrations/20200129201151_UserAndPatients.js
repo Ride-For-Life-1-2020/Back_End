@@ -1,4 +1,7 @@
 exports.up = async knex => {
+  await knex.schema.createTable("Cities", table => {
+    table.increments("id"), table.string("City", 50).notNullable();
+  });
   await knex.schema.createTable("Patients", table => {
     table.increments(), table.string("FullName", 50).notNullable();
     table
@@ -10,7 +13,11 @@ exports.up = async knex => {
       table.date("DueDate"),
       table.string("Email", 128),
       table.string("Address", 240),
-      table.string("City", 240);
+      table
+        .integer("City_ID")
+        .notNullable()
+        .references("id")
+        .inTable("Cities");
   });
   await knex.schema.createTable("Drivers", table => {
     table.increments(), table.string("FullName", 50).notNullable();
@@ -24,11 +31,15 @@ exports.up = async knex => {
       table.string("Shift", 128),
       table.integer("Price"),
       table.string("Email", 128);
-    table.string("City", 50).notNullable();
+    table
+      .integer("City_ID")
+      .notNullable()
+      .references("id");
   });
 };
 
 exports.down = async knex => {
   await knex.schema.dropTableIfExists("Patients");
   await knex.schema.dropTableIfExists("Drivers");
+  await knex.schema.dropTableIfExists("Cities");
 };

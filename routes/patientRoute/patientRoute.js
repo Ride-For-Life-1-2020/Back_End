@@ -15,14 +15,16 @@ router.get("/", authenticationMW, async (req, res, next) => {
 });
 
 router.get(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForPatient(),
   async (req, res, next) => {
     try {
       res
         .status(200)
-        .json(await patientModel.findBy({ id: req.params.id }).first());
+        .json(
+          await patientModel.findBy({ UserName: req.params.UserName }).first()
+        );
     } catch (err) {
       next(err);
     }
@@ -30,16 +32,16 @@ router.get(
 );
 
 router.put(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForPatient(),
   async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { UserName } = req.params;
       const changes = req.body;
       res
         .status(200)
-        .json(await patientModel.updatePatient({ id, ...changes }));
+        .json(await patientModel.updatePatient({ UserName, ...changes }));
     } catch (err) {
       next(err);
     }
@@ -92,12 +94,12 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.delete(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForPatient(),
   async (req, res, next) => {
     try {
-      await patientModel.deletePatient(req.params.id);
+      await patientModel.deletePatient(req.params.UserName);
       res.status(201).json({ Success: "Patient Deleted Successfully!" });
     } catch (err) {
       next(err);

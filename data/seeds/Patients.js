@@ -14,7 +14,7 @@ exports.seed = function(knex) {
           DueDate: "6/12/2020",
           Email: "TerryT@gmail.com",
           Address: "123 Kampala Street",
-          City: "Kampala"
+          City_ID: 1
         },
         {
           FullName: "Rihanna",
@@ -25,7 +25,7 @@ exports.seed = function(knex) {
           DueDate: "6/12/2020",
           Email: "Rihanna@gmail.com",
           Address: "345 Jinja Street",
-          City: "Jinja"
+          City_ID: 1
         },
         {
           FullName: "Mary Michaels",
@@ -36,7 +36,7 @@ exports.seed = function(knex) {
           DueDate: "6/12/2020",
           Email: "MaryM@gmail.com",
           Address: "123 Gulu Ave",
-          City: "Gulu"
+          City_ID: 2
         }
       ]);
     });

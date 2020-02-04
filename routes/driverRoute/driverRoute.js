@@ -14,14 +14,16 @@ router.get("/", authenticationMW, async (req, res, next) => {
   }
 });
 router.get(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForDriver(),
   async (req, res, next) => {
     try {
       res
         .status(200)
-        .json(await driverModel.findBy({ id: req.params.id }).first());
+        .json(
+          await driverModel.findBy({ UserName: req.params.UserName }).first()
+        );
     } catch (err) {
       next(err);
     }
@@ -29,14 +31,16 @@ router.get(
 );
 
 router.put(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForDriver(),
   async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { UserName } = req.params;
       const changes = req.body;
-      res.status(200).json(await driverModel.updateDriver({ id, ...changes }));
+      res
+        .status(200)
+        .json(await driverModel.updateDriver({ UserName, ...changes }));
     } catch (err) {
       next(err);
     }
@@ -89,12 +93,12 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.delete(
-  "/:id",
+  "/:UserName",
   authenticationMW,
   checkForDriver(),
   async (req, res, next) => {
     try {
-      await driverModel.deleteDriver(req.params.id);
+      await driverModel.deleteDriver(req.params.UserName);
       res.status(201).json({ Success: "Driver Deleted Successfully!" });
     } catch (err) {
       next(err);
