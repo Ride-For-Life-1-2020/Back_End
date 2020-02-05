@@ -33,3 +33,9 @@
 | ---- | :----: | :---------------: | ---------------: |
 | /api/rides |  GET  |               | <strong> Requires: 'authorization' header</strong>|
 | /api/rides/request |  POST  |Driver (<strong>Required/ THEIR USERNAME </strong>),<br/> Patient (<strong>Required & Unique/THEIR USERNAME</strong>),<br/> Address (<strong>Required</strong>)| <strong> Requires: 'authorization' header</strong>| 
+
+## Cities Endpoints
+| URL  | METHOD | Object Example | Authorization? |
+| ---- | :----: | :---------------: | ---------------: |
+| /api/cities |  GET  |               | <strong> Requires: 'authorization' header</strong>|
+| /api/cities |  POST  | City (**Required**) | <strong> Requires: 'authorization' header</strong>| 
