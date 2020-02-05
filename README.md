@@ -32,4 +32,4 @@
 | URL  | METHOD | Object Example | Authorization? |
 | ---- | :----: | :---------------: | ---------------: |
 | /api/rides |  GET  |               | <strong> Requires: 'authorization' header</strong>|
-| /api/rides/request |  POST  |Driver (<strong>Required</strong>THEIR USERNAME),<br/> Patient (<strong>Required & Unique</strong> THEIR USERNAME),<br/> ADDRESS (<strong>Required</strong>)| <strong> Requires: 'authorization' header</strong>| 
+| /api/rides/request |  POST  |Driver (<strong>Required/ THEIR USERNAME </strong>),<br/> Patient (<strong>Required & Unique/THEIR USERNAME</strong>),<br/> ADDRESS (<strong>Required</strong>)| <strong> Requires: 'authorization' header</strong>| 
