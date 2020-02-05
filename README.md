@@ -27,3 +27,9 @@
 | /api/patients/:UserName |  GET  |               | <strong> Requires: 'authorization' header</strong>|
 | /api/patients/:UserName |  PUT  |  Any of The SignUp Fields Above (**Note: You can update Password & It Will Rehash/Cannot Update ID Field**)            | <strong> Requires: 'authorization' header</strong>| 
 | /api/patients/:UserName |  DELETE  |           | <strong> Requires: 'authorization' header</strong>| 
+
+## Ride Endpoints
+| URL  | METHOD | Object Example | Authorization? |
+| ---- | :----: | :---------------: | ---------------: |
+| /api/rides |  GET  |               | <strong> Requires: 'authorization' header</strong>|
+| /api/rides/request |  POST  |Driver (<strong>Required</strong>THEIR USERNAME),<br/> Patient (<strong>Required & Unique</strong> THEIR USERNAME),<br/> ADDRESS (<strong>Required</strong>)| <strong> Requires: 'authorization' header</strong>| 
