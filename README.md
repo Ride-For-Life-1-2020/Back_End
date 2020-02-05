@@ -11,7 +11,7 @@
 ## Driver Endpoints
 | URL  | METHOD | Object Example | Authorization? |
 | ---- | :----: | :---------------: |  ---------------: |
-| /api/drivers/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer (*10 Char Max*) & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price <strong>(Integer)</strong>,<br/> Email, <br/> City (<strong>Required</strong>)       | No |
+| /api/drivers/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer (*10 Char Max*) & Required</strong>),<br/> Vehicle,<br/> Shift,<br/> Price <strong>(Integer)</strong>,<br/> Email, <br/> City_ID (<strong>Required/Integer</strong>)       | No |
 | /api/drivers/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)            | No |
 | /api/drivers |  GET  |               | <strong> Requires: 'authorization' header</strong>|
 | /api/drivers/:UserName |  GET  |               | <strong> Requires: 'authorization' header</strong>|
@@ -21,7 +21,7 @@
 ## Patient Endpoints
 | URL  | METHOD | Object Example | Authorization? |
 | ---- | :----: | :---------------: | ---------------: |
-| /api/patients/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer (*10 Char Max*) & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City       | No |
+| /api/patients/signup |  POST  |  FullName (<strong>Required</strong>),<br/> UserName (<strong>Required & Unique</strong>),<br/> Password (<strong>Required</strong>), <br/> PhoneNumber (<strong>Integer (*10 Char Max*) & Required</strong>),<br/> DueDate,<br/> Email,<br/> Address,<br/> City_ID (<strong>Required/Integer</strong>)       | No |
 | /api/patients/login |  POST  |     UserName (<strong>Required</strong>), <br/> Password (<strong>Required</strong>)             | No |
 | /api/patients |  GET  |               | <strong> Requires: 'authorization' header</strong>|
 | /api/patients/:UserName |  GET  |               | <strong> Requires: 'authorization' header</strong>|
